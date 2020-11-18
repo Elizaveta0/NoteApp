@@ -50,6 +50,7 @@ class CreateNoteFragment : BaseFragment() {
 
         imgDone.setOnClickListener {
             saveNote()
+            replaceFragment(HomeFragment.newInstance(), true)
         }
 
         imgBack.setOnClickListener {
@@ -58,12 +59,15 @@ class CreateNoteFragment : BaseFragment() {
     }
 
     private fun saveNote(){
-        if(etNoteTitle.text.isNullOrEmpty() )
+        if(etNoteTitle.text.isNullOrEmpty() ){
             Toast.makeText(context, "Note Title is Required", Toast.LENGTH_SHORT).show()
-        if(etNoteSubTitle.text.isNullOrEmpty())
+        }
+        if(etNoteSubTitle.text.isNullOrEmpty()){
             Toast.makeText(context, "Note Sub Title is Required", Toast.LENGTH_SHORT).show()
-        if(etNoteDescription.text.isNullOrEmpty())
+        }
+        if(etNoteDescription.text.isNullOrEmpty()){
             Toast.makeText(context, "Note Description is Required", Toast.LENGTH_SHORT).show()
+        }
 
         launch {
             val notes = Notes()
@@ -72,7 +76,7 @@ class CreateNoteFragment : BaseFragment() {
             notes.noteText = etNoteDescription.text.toString()
             notes.dateTime = currentDate
             context?.let {
-                NotesDatabase.getDatabase(it).noteDao().insertNotes(notes)
+//                NotesDatabase.getDatabase(it).noteDao().insertNotes(notes)
                 etNoteDescription.setText("")
                 etNoteSubTitle.setText("")
                 etNoteTitle.setText("")

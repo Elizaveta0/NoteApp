@@ -19,12 +19,12 @@ abstract class NotesDatabase : RoomDatabase() {
                 notesDatabase = Room.databaseBuilder(
                     context,
                     NotesDatabase::class.java,
-                    "nores.db"
+                    "notes.db"
                 ).build()
             }
             return notesDatabase!!
         }
     }
 
-    abstract fun noteDao():NoteDao
+    abstract fun noteDao() : NoteDao
 }
