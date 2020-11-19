@@ -76,10 +76,10 @@ class CreateNoteFragment : BaseFragment() {
             notes.noteText = etNoteDescription.text.toString()
             notes.dateTime = currentDate
             context?.let {
-//                NotesDatabase.getDatabase(it).noteDao().insertNotes(notes)
-                etNoteDescription.setText("")
-                etNoteSubTitle.setText("")
-                etNoteTitle.setText("")
+                NotesDatabase.getDatabase(it).noteDao().insertNotes(notes)
+//                etNoteDescription.setText("")
+//                etNoteSubTitle.setText("")
+//                etNoteTitle.setText("")
             }
         }
     }

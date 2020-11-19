@@ -24,8 +24,8 @@ class NotesAdapter(val arrList: List<Notes>) :
 
     override fun onBindViewHolder(holder: NotesViewHolder, position: Int) {
         holder.itemView.tvTitle.text = arrList[position].title
-        holder.itemView.tvDesc.text = arrList[position].title
-        holder.itemView.tvDataTime.text = arrList[position].title
+        holder.itemView.tvDesc.text = arrList[position].subTitle
+        holder.itemView.tvDateTime.text = arrList[position].dateTime
     }
 
     class NotesViewHolder(view: View) : RecyclerView.ViewHolder(view){
