@@ -46,7 +46,7 @@ class HomeFragment : BaseFragment() {
         launch{
             context?.let {
                 var notes = NotesDatabase.getDatabase(it).noteDao().getAllNotes()
-                recycler_view.adapter = NotesAdapter(notes)
+                recycler_view.adapter = NotesAdapter(context!!, notes)
             }
         }
         fabBtnCreateNote.setOnClickListener {

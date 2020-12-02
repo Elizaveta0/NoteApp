@@ -6,7 +6,7 @@ import space.ex.myapplication.entities.Notes
 @Dao
 interface NoteDao {
     @Query("SELECT * FROM notes ORDER BY id DESC")
-    suspend fun getAllNotes(): List<Notes>
+    suspend fun getAllNotes(): MutableList<Notes>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertNotes(note:Notes)
