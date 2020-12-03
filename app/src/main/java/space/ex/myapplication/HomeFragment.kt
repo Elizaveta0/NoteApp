@@ -1,6 +1,8 @@
 package space.ex.myapplication
 
+import android.media.MediaPlayer
 import android.os.Bundle
+import android.provider.MediaStore
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +16,8 @@ import space.ex.myapplication.entities.Notes
 
 
 class HomeFragment : BaseFragment() {
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -24,7 +28,6 @@ class HomeFragment : BaseFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 

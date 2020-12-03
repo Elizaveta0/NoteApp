@@ -1,14 +1,19 @@
 package space.ex.myapplication
 
+import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var mp: MediaPlayer
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        mp = MediaPlayer.create(this, R.raw.singularity )
+        mp.setVolume(0.5f, 0.5f)
+        mp.start()
         replaceFragment(HomeFragment.newInstance(), true)
     }
 
